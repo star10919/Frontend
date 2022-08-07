@@ -1,0 +1,19 @@
+/* 태그 선택자: 1점 */
+div {
+  font-size: 70px;
+}
+
+/* 클래스 선택자: 10점 */
+.hello {
+  color: red;
+}
+
+/* !important 선택자: 제일 중요함(무한대점수) */
+.hello {
+  color: green !important;
+}
+
+/* ID선택자: 100점 */
+#hello {
+  color: blue;
+}
