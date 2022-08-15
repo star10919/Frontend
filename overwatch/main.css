@@ -1,7 +1,7 @@
 body {
   height: 100vh;
   background-image: url("./images/bg.jpg");
-  background-size: cover;
+  background-size: cover;   /* cover: 요소의 더 넓은 너비에 맞춤 */
   background-repeat: no-repeat;
   background-attachment: fixed;  /* 스크롤돼도 배경이미지 고정 */
 
