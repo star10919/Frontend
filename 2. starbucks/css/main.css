@@ -6,6 +6,7 @@ body {
   line-height: 1.4;
   font-family: 'Nanum Gothic', sans-serif;
   height: 3000px;
+  position: relative;
 }
 img {
   /* img는 인라인요소로 글자를 취급/ baseline을 가지므로 밑에 공백이 생김/ 따라서 블록요소로 변경하여 사용 */
@@ -19,7 +20,56 @@ a {
   margin: 0 auto;
   position: relative;
 }
-
+.btn {
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: block;
+  transition: .4s;
+}
+.btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse {
+  background-color: #333;
+  color: #fff;
+}
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  color: #333;
+}
+.btn.btn--brown {
+  color: #592B18;
+  border-color: #592B18;
+}
+.btn.btn--brown:hover {
+  color: #fff;
+  background-color: #592B18;
+}
+.btn.btn--gold {
+  color: #D9AA8A;
+  border-color: #D9AA8A;
+}
+.btn.btn--gold:hover {
+  color: #fff;
+  background-color: #D9AA8A;
+}
+.btn.btn--white {
+  color: #fff;
+  border-color: #fff;
+}
+.btn.btn--white:hover {
+  color: #333;
+  background-color: #fff;
+}
 
 
 /* HEADER */
@@ -29,6 +79,8 @@ header {
   /* position: relative; */
   position: fixed; /*fixed와 absolute는 가로너비가 최소한으로 줄어들도록 시도함*/
   width: 100%; /*가로너비를 최대한 많이 사용하도록 변경됨*/
+  z-index: 9;
+  top: 0;
 }
 header > .inner {  /* > header의 자식인 inner클래스만 적용  */
   height: 120px;
@@ -193,31 +245,46 @@ header .badges .badge {
 
 /* VISUAL */
 .visual {
-  /* margin-top: 120px; */
+  margin-top: 120px;
   background-image: url("../images/visual_bg.jpg");
   background-position: center;
 }
 .visual .inner {
-
+  height: 646px;
+  /* background-color: orange; */
 }
 .visual .title {
-
+  position: absolute;
+  top: 88px;
+  left: -10px;
 }
 .visual .title .btn {
-
+  position: absolute;
+  top: 259px;
+  left: 173px;
 }
 .visual .cup1.image {
-
+  position: absolute;
+  bottom: 0;
+  right: -47px;
 }
 .visual .cup1.text {
-
+  position: absolute;
+  top: 38px;
+  right: 171px;
 }
 .visual .cup2.image {
-
+  position: absolute;
+  bottom: 0;
+  right: 162px;
 }
 .visual .cup2.text {
-
+  position: absolute;
+  top: 321px;
+  right: 416px;
 }
 .visual .spoon {
-
+  position: absolute;
+  bottom: 0;
+  left: 275px;
 }
