@@ -117,15 +117,40 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
-// 데이터 불변성 (Immutability)
-// 원시 데이터: String, Number, Boolean, Undefined, null
-// 참조형 데이터: Object, Array, Functuin
-// 원시 데이터는 값이 같으면 동일한 메모리 주소 사용
-// 참조형 데이터는 값이 같아도 다른 메모리 주소 사용 (선언할 때마다 새로운 메모리 주소 할당)
-// 얕은 복사: 표면만 복사
-// 깊은 복사: 내부에 있는 참조 메모리까지 모두 복사
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})({"myData.json":[function(require,module,exports) {
+module.exports = {
+  "string": "heropy",
+  "number": 123,
+  "boolean": true,
+  "null": null,
+  "object": {},
+  "array": []
+};
+},{}],"main.js":[function(require,module,exports) {
+"use strict";
+
+var _myData = _interopRequireDefault(require("./myData.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var user = {
+  name: 'heropy',
+  age: 85,
+  emails: ['thesecon@gmail.com', 'neo@zillinks.com']
+}; // const strUser = localStorage.setItem('user', JSON.stringify(user))
+
+var str = localStorage.getItem('user');
+var obj = JSON.parse(str);
+obj.age = 22;
+console.log(obj);
+localStorage.setItem('user', JSON.stringify(obj)); // const strUser = JSON.stringify(user)
+// console.log(typeof(strUser))
+// localStorage.setItem('user', strUser)
+// console.log(localStorage.getItem('user'))
+// const parseUser = JSON.parse(strUser)
+// console.log(parseUser)
+// localStorage.removeItem('user')
+},{"./myData.json":"myData.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -153,7 +178,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "11636" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2522" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
