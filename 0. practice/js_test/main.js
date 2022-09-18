@@ -1,30 +1,15 @@
-import myData from './myData.json'
+import axios from 'axios'
 
-const user = {
-  name: 'heropy',
-  age: 85,
-  emails: [
-    'thesecon@gmail.com',
-    'neo@zillinks.com'
-  ]
+function fetchMovies() {
+  axios
+    .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
+    .then(res => {
+      console.log(res)
+
+      const h1El = document.querySelector('h1')
+      const imgEl = document.querySelector('img')
+      h1El.textContent = res.data.Search[0].Title
+      imgEl.src = res.data.Search[0].Poster
+    })
 }
-
-// const strUser = localStorage.setItem('user', JSON.stringify(user))
-const str = localStorage.getItem('user')
-const obj = JSON.parse(str)
-obj.age = 22
-console.log(obj)
-localStorage.setItem('user', JSON.stringify(obj))
-
-
-
-
-// const strUser = JSON.stringify(user)
-// console.log(typeof(strUser))
-// localStorage.setItem('user', strUser)
-// console.log(localStorage.getItem('user'))
-
-// const parseUser = JSON.parse(strUser)
-// console.log(parseUser)
-
-// localStorage.removeItem('user')
+fetchMovies()
