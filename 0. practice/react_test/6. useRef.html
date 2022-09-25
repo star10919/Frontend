@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <body>
     <div id="root"></div>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -9,9 +9,23 @@
     <script type="text/babel">
       const rootElement = document.getElementById("root");
       const App = () => {
+        const inputRef = React.useRef();
+        const divRef = React.useRef();
+        React.useEffect(() => {
+          inputRef.current.focus();
+          // document.getElementById("input").focus();
+          
+          setTimeout(() => {
+            divRef.current.style.backgroundColor = 'orange';
+          }, 1000)
+        },[])
+
         return (
           <>
-          
+            <input ref={inputRef} />
+            <div
+              ref={divRef}
+              style={{ height: 100, width: 300, backgroundColor: 'pink'}}></div>
           </>
         );
       }
