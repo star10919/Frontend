@@ -13,69 +13,9 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
 
-      // // function 컴포넌트로 props 받기
-      // function Component (props) {
-      //   return (
-      //     <div>
-      //       <h1>{props.message} 이것은 함수로 만든 컴포넌트 입니다.</h1>
-      //     </div>
-      //   );
-      // }
 
 
-      // class 컴포넌트로 props 받기
-      class Component extends React.Component {
-        // state 방법1
-        // state = {    // 클래스 컴포넌트에서 state는 항상 객체형태여야 함!!
-        //   count: 0,
-        // }
-
-        // state 방법2
-        constructor(props) {
-          super(props);
-          this.state = { count : 0 };
-        }
-
-        render() {
-          return (
-            <div>
-              <h1>{this.props.message} 이것은 클래스로 만든 컴포넌트 입니다.</h1>
-              <p>{this.state.count}</p>
-            </div>
-          );
-        }
-
-        componentDidMount() {
-          setTimeout(() => {
-            // // 방법 1: 객체 통째로 생성
-            // this.setState({
-            //   count: this.state.count + 1,
-            // });
-
-            // 방법 2
-            this.setState((previousState) => {
-              const newState = { count: previousState.count + 1 };
-              return newState;
-            })
-          }, 1000);
-        }
-
-
-
-      //   // 클래스에서만 사용 가능
-      //   static defaultProps = {
-      //   message: "기본값2",
-      // }
-      }
-
-      // // 함수, 클래스 모두에서 사용 가능 
-      // Component.defaultProps = {
-      //   message: "기본값",
-      // }
-
-      ReactDOM.render(<Component message="기본값 아님" />, document.querySelector('#root'));
+      ReactDOM.render(<Component />, document.querySelector('#root'));
     </script>
   </body>
 </html>
-
-
